@@ -1,12 +1,11 @@
 {
   "name": "chrome-extension-starter",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A chrome extension starter",
   "scripts": {
-    "build": "webpack -p",
+    "build": "webpack --watch",
     "lint": "eslint *.js",
-    "test": "exit 0",
-    "build": "webpack --watch"
+    "test": "exit 0"
   },
   "author": "Riley Tomasek",
   "license": "MIT",
