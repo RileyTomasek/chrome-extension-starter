@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "description": "A chrome extension starter",
   "scripts": {
-    "build": "webpack --watch",
+    "build": "webpack -p",
     "lint": "eslint *.js",
-    "test": "exit 0"
+    "test": "exit 0",
+    "watch": "webpack --watch"
   },
   "author": "Riley Tomasek",
   "license": "MIT",
