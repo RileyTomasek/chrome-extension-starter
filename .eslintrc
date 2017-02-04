@@ -1,0 +1,6 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "jsx-quotes": [2, "prefer-single"]
+  }
+}
