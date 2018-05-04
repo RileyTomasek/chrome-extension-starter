@@ -1,24 +1,41 @@
 const path = require('path');
-const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 
-module.exports = {
+module.exports = () => ({
+  devtool: 'sourcemap',
   entry: {
-    background: './app/src/background.js',
-    contentscript: './app/src/contentscript.js',
-    options: './app/src/options.js',
-    popup: './app/src/popup.js',
+    background: './source/background',
+    chromereload: './source/chromereload',
+    contentscript: './source/contentscript',
+    options: './source/options',
+    popup: './source/popup',
   },
   output: {
-    path: path.join(__dirname, 'app/lib'),
+    path: path.join(__dirname, 'distribution'),
     filename: '[name].js',
   },
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
     ],
   },
-  plugins: [new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
-    }), new LiveReloadPlugin({ port: 35729 })],
-};
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: '**',
+        context: 'source',
+        ignore: '*.js',
+      },
+    ]),
+    new LiveReloadPlugin({ port: 35729 }),
+  ],
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
+});

@@ -1,6 +1,6 @@
 {
   "name": "Chrome extension starter",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "manifest_version": 2,
   "description": "A simple chrome extension starter",
   "icons": {
@@ -9,7 +9,8 @@
   },
   "background": {
     "scripts": [
-      "lib/background.js"
+      "background.js",
+      "chromereload.js"
     ]
   },
   "permissions": [
