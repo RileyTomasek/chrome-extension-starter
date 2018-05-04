@@ -1,6 +1,6 @@
 {
   "name": "chrome-extension-starter",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A chrome extension starter",
   "scripts": {
     "build": "webpack --mode=production",
