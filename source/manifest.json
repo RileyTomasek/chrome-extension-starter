@@ -48,7 +48,7 @@
         "https://*/*"
       ],
       "js": [
-        "lib/contentscript.js"
+        "contentscript.js"
       ],
       "run_at": "document_end",
       "all_frames": false
